@@ -50,6 +50,9 @@
             <marker id="arrow-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                 <path d="M 0 0 L 10 5 L 0 10 z" fill="#3b82f6" />
             </marker>
+            <marker id="arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 0 L 10 5 L 0 10 z" fill="#a855f7" />
+            </marker>
         </defs>
     </svg>
 
@@ -72,48 +75,48 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-8">
         
         <!-- Header Section -->
-        <div class="bg-white rounded-xl shadow-md p-8 mb-8 border-l-4 border-blue-600">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">การคำนวณแรงจับยึด (Clamping Force)</h1>
-            <p class="text-gray-600 text-lg">สำหรับกระบวนการกัด (Milling) และ งานเจาะ (Drilling) - ระดับวิศวกรรมการผลิต</p>
+        <div class="bg-white rounded-xl shadow-md p-5 md:p-8 mb-6 md:mb-8 border-l-4 border-blue-600">
+            <h1 class="text-2xl md:text-3xl font-bold text-gray-900 mb-2">การคำนวณแรงจับยึด (Clamping Force)</h1>
+            <p class="text-gray-600 text-base md:text-lg">สำหรับกระบวนการกัด (Milling), งานเจาะ (Drilling) และ งานกลึง (Turning)</p>
         </div>
 
-        <!-- TAB: Principle 3-2-1 (New Tab) -->
-        <div id="principle321" class="tab-content active space-y-8">
+        <!-- TAB: Principle 3-2-1 -->
+        <div id="principle321" class="tab-content active space-y-6 md:space-y-8">
             
-            <div class="bg-white rounded-xl shadow-md p-8">
-                <h2 class="text-2xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fas fa-cube text-blue-500 mr-2"></i>หลักการอ้างอิงตำแหน่ง 3-2-1 (3-2-1 Locating Principle)</h2>
-                <p class="mb-4 text-gray-700">ก่อนที่เราจะคำนวณ <strong>แรงจับยึด (Clamping Force)</strong> เราต้องกำหนดตำแหน่งชิ้นงาน (Locating) ให้ถูกต้องเสียก่อน วัตถุอิสระในอวกาศมีระดับขั้นความเสรี <strong>(Degrees of Freedom - DOF) ทั้งหมด 6 แกน หรือ 12 ทิศทางการเคลื่อนที่</strong> (เคลื่อนที่แนวตรง 6 ทิศทาง + หมุน 6 ทิศทาง)</p>
+            <div class="bg-white rounded-xl shadow-md p-5 md:p-8">
+                <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fas fa-cube text-blue-500 mr-2"></i>หลักการอ้างอิงตำแหน่ง 3-2-1 (3-2-1 Locating Principle)</h2>
+                <p class="mb-4 text-gray-700 text-sm md:text-base">ก่อนที่เราจะคำนวณ <strong>แรงจับยึด (Clamping Force)</strong> เราต้องกำหนดตำแหน่งชิ้นงาน (Locating) ให้ถูกต้องเสียก่อน วัตถุอิสระในอวกาศมีระดับขั้นความเสรี <strong>(Degrees of Freedom - DOF) ทั้งหมด 6 แกน หรือ 12 ทิศทางการเคลื่อนที่</strong> (เคลื่อนที่แนวตรง 6 ทิศทาง + หมุน 6 ทิศทาง)</p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8 mt-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 mt-6">
                     <!-- Explain Theory -->
                     <div class="space-y-4">
                         <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
                             <h4 class="font-bold text-blue-800 mb-2">การจำกัด DOF ด้วยระนาบ 3-2-1</h4>
                             <ul class="text-sm text-gray-700 space-y-3">
                                 <li class="flex items-start">
-                                    <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 text-xs">3</span>
+                                    <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 text-xs mt-0.5">3</span>
                                     <div><strong>ระนาบหลัก (Primary Locator):</strong> ใช้ 3 จุดสร้างระนาบสมมติ (เช่น พื้นแกน Z) จะจำกัดการเคลื่อนที่ลงล่าง และการหมุนรอบแกน X, Y</div>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 text-xs">2</span>
+                                    <span class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 text-xs mt-0.5">2</span>
                                     <div><strong>ระนาบรอง (Secondary Locator):</strong> ใช้ 2 จุดสร้างเส้นตรง (เช่น ชนด้านหลังแกน Y) จะจำกัดการเคลื่อนที่ไปด้านหลัง และการหมุนรอบแกน Z</div>
                                 </li>
                                 <li class="flex items-start">
-                                    <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 text-xs">1</span>
+                                    <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center mr-2 shrink-0 text-xs mt-0.5">1</span>
                                     <div><strong>ระนาบอ้างอิงสุดท้าย (Tertiary Locator):</strong> ใช้ 1 จุด (เช่น ชนด้านซ้ายแกน X) จะจำกัดการเคลื่อนที่ไปด้านซ้าย</div>
                                 </li>
                             </ul>
                         </div>
-                        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200 text-sm text-yellow-800">
+                        <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200 text-sm text-yellow-800 leading-relaxed">
                             <strong><i class="fas fa-lightbulb mr-1"></i> หัวใจสำคัญ:</strong> พินอ้างอิงทั้ง 6 จุด (3+2+1) จะกำจัดการเคลื่อนที่ได้ <strong>9 ทิศทาง</strong> เหลือเพียง <strong>3 ทิศทาง</strong> ที่ชิ้นงานจะหลุดออกมาได้ (คือยกขึ้นบน, ถอยมาข้างหน้า, ดันไปทางขวา) ซึ่ง 3 ทิศทางนี้แหละที่เราต้องใช้ <strong>"แคลมป์ (Clamp)"</strong> ในการจับยึด!
                         </div>
                     </div>
 
                     <!-- SVG 3-2-1 Diagram -->
-                    <div class="border rounded-lg bg-slate-50 p-4 flex items-center justify-center shadow-inner">
+                    <div class="border rounded-lg bg-slate-50 p-4 flex items-center justify-center shadow-inner overflow-hidden">
                         <svg viewBox="0 0 400 300" class="w-full max-w-sm h-auto" style="font-family: Arial, sans-serif;">
                             <!-- Isometric Grid/Axes roughly -->
                             <!-- Z-Axis -->
@@ -153,8 +156,8 @@
                 </div>
 
                 <!-- Interactive Simulation -->
-                <div class="bg-slate-800 rounded-xl shadow-lg p-6 text-white border border-slate-700">
-                    <h3 class="text-xl font-bold mb-4 text-blue-300"><i class="fas fa-gamepad mr-2"></i>โปรแกรมจำลอง DOF (Interactive Simulation)</h3>
+                <div class="bg-slate-800 rounded-xl shadow-lg p-5 md:p-6 text-white border border-slate-700">
+                    <h3 class="text-lg md:text-xl font-bold mb-4 text-blue-300"><i class="fas fa-gamepad mr-2"></i>โปรแกรมจำลอง DOF (Interactive Simulation)</h3>
                     <p class="text-sm text-slate-400 mb-6">ลองกดเลือกใช้งาน Pin อ้างอิงด้านล่าง เพื่อดูว่าทิศทางการเคลื่อนที่ใดของชิ้นงานถูกล็อก (Locked) ไว้บ้าง</p>
                     
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -179,7 +182,7 @@
                         </div>
 
                         <!-- Status Displays -->
-                        <div class="col-span-1 lg:col-span-2 grid grid-cols-2 gap-4">
+                        <div class="col-span-1 lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <!-- Translation -->
                             <div class="bg-slate-700 p-4 rounded-lg">
                                 <h4 class="text-sm font-bold text-slate-300 mb-3 border-b border-slate-600 pb-1">การเลื่อนตำแหน่ง (Translation)</h4>
@@ -208,7 +211,7 @@
                         </div>
                     </div>
                     
-                    <div id="dof-conclusion" class="mt-6 p-4 bg-slate-900 border-l-4 border-slate-500 text-sm text-slate-300 hidden">
+                    <div id="dof-conclusion" class="mt-6 p-4 bg-slate-900 border-l-4 border-slate-500 text-sm text-slate-300 hidden leading-relaxed">
                         <!-- Conclusion text dynamic -->
                     </div>
                 </div>
@@ -217,22 +220,129 @@
         </div>
 
         <!-- TAB: Theory -->
-        <div id="theory" class="tab-content space-y-8">
-                            <!-- Left force (Bottom) -->
+        <div id="theory" class="tab-content space-y-6 md:space-y-8">
+            
+            <!-- Introduction -->
+            <div class="bg-white rounded-xl shadow-md p-5 md:p-8">
+                <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fas fa-book-open text-blue-500 mr-2"></i>หลักการพื้นฐาน (Fundamental Principles)</h2>
+                <p class="mb-4 text-sm md:text-base">ในกระบวนการตัดเฉือนโลหะ (Machining) <strong>แรงจับยึด (Clamping Force, \(F_{clamp}\))</strong> ต้องมีค่ามากกว่าแรงตัด (Cutting Force) เสมอ เพื่อป้องกันไม่ให้ชิ้นงานขยับ (Slip) หรือหลุดกระเด็น ซึ่งจะทำให้ Tool หัก ชิ้นงานเสีย หรือเกิดอันตราย</p>
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 flex items-start">
+                    <i class="fas fa-info-circle text-blue-500 mt-1 mr-3 text-xl"></i>
+                    <div class="w-full">
+                        <h3 class="font-semibold text-blue-800 text-sm md:text-base">สมการสมดุลของแรงจับยึดพื้นฐาน (Static Equilibrium):</h3>
+                        <div class="text-base md:text-lg text-center my-4 bg-white py-3 rounded shadow-sm overflow-x-auto">
+                            \[ F_{clamp} \cdot \mu \ge F_{c} \cdot S \]
+                        </div>
+                        <ul class="list-disc list-inside text-xs md:text-sm text-gray-700 mt-2 space-y-1">
+                            <li><strong>\(F_{clamp}\)</strong> : แรงจับยึดที่ต้องการ (Required Clamping Force, N)</li>
+                            <li><strong>\(\mu\)</strong> : สัมประสิทธิ์ความเสียดทานสถิต (Static Friction Coefficient)</li>
+                            <li><strong>\(F_{c}\)</strong> : แรงที่เกิดจากการตัดเฉือน (Cutting Force, N)</li>
+                            <li><strong>\(S\)</strong> : ค่าความเผื่อเพื่อความปลอดภัย (Safety Factor)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Safety Factor Explanation -->
+                <div class="mt-6 bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                    <h4 class="font-semibold text-yellow-800 mb-2 text-sm md:text-base"><i class="fas fa-shield-alt mr-2"></i>ตัวประกอบความปลอดภัย (Safety Factor, \(S\)) ในงานจับยึด</h4>
+                    <p class="text-xs md:text-sm text-gray-700 mb-3">ในการคำนวณเราไม่สามารถใช้ \(S = 1\) ได้ เนื่องจากในสภาวะการตัดเฉือนจริงมีปัจจัยพลศาสตร์ (Dynamic factors) เข้ามาเกี่ยวข้อง โดยทั่วไปค่า \(S\) จะเกิดจากผลคูณของปัจจัยต่างๆ (\(S = S_1 \times S_2 \times S_3\)) เช่น:</p>
+                    <ul class="list-disc list-inside text-xs md:text-sm text-gray-700 grid grid-cols-1 sm:grid-cols-2 gap-2 leading-relaxed">
+                        <li><strong>การสึกหรอของทูล (Tool Wear):</strong> ทูลที่ทื่ออาจทำให้แรงตัดเพิ่มขึ้นถึง 1.5 เท่า</li>
+                        <li><strong>แรงกระแทก (Shock Load):</strong> งานกัดหยาบ (Roughing) ที่มี Interrupted cut</li>
+                        <li><strong>น้ำหล่อเย็น (Coolant):</strong> ทำให้ความเสียดทาน (\(\mu\)) ลดลงอย่างฉับพลัน</li>
+                        <li class="col-span-1 sm:col-span-2 pt-2 border-t border-yellow-200 mt-1 text-yellow-900"><strong>สรุป:</strong> มาตรฐานการออกแบบ Jig/Fixture ส่วนใหญ่จะกำหนดค่า \(S\) ไว้ที่ <strong>1.5 - 3.0</strong></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Milling and Drilling Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                <!-- Milling Section -->
+                <div class="bg-white rounded-xl shadow-md p-5 md:p-8">
+                    <h2 class="text-lg md:text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <i class="fas fa-layer-group text-green-500 mr-2"></i> 1. งานกัด (Milling)
+                    </h2>
+                    
+                    <!-- Diagram Milling -->
+                    <div class="mb-6 border rounded-lg bg-slate-50 p-4 flex justify-center overflow-hidden">
+                        <svg viewBox="0 0 400 220" class="w-full max-w-md h-auto" style="font-family: Arial, sans-serif;">
+                            <rect x="50" y="100" width="40" height="100" fill="#94a3b8" rx="2" />
+                            <text x="55" y="155" fill="#ffffff" font-size="12" font-weight="bold" transform="rotate(-90 55,155)">Fixed Jaw</text>
+                            <rect x="310" y="100" width="40" height="100" fill="#cbd5e1" rx="2" />
+                            <text x="325" y="165" fill="#475569" font-size="12" font-weight="bold" transform="rotate(-90 325,165)">Movable</text>
+                            <rect x="90" y="100" width="220" height="70" fill="#60a5fa" opacity="0.9" stroke="#1e3a8a" stroke-width="2"/>
+                            <text x="160" y="140" fill="#ffffff" font-size="16" font-weight="bold">Workpiece</text>
+                            <text x="160" y="160" fill="#e0f2fe" font-size="12">Friction (μ)</text>
+                            <rect x="180" y="20" width="40" height="70" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+                            <path d="M180,90 L220,90 L210,105 L190,105 Z" fill="#d97706" stroke="#b45309"/>
+                            <path d="M190,20 L190,90 M200,20 L200,90 M210,20 L210,90" stroke="#b45309" stroke-width="1"/>
+                            <line x1="10" y1="135" x2="45" y2="135" stroke="#22c55e" stroke-width="4" marker-end="url(#arrow-green)" />
+                            <line x1="390" y1="135" x2="355" y2="135" stroke="#22c55e" stroke-width="4" marker-end="url(#arrow-green)" />
+                            <text x="5" y="125" fill="#166534" font-size="14" font-weight="bold">F_clamp</text>
+                            <text x="345" y="125" fill="#166534" font-size="14" font-weight="bold">F_clamp</text>
+                            <line x1="225" y1="95" x2="280" y2="95" stroke="#ef4444" stroke-width="4" marker-end="url(#arrow-red)" />
+                            <text x="235" y="85" fill="#b91c1c" font-size="16" font-weight="bold" font-style="italic">F_c</text>
+                            <path d="M 185 40 A 15 15 0 0 1 215 40" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#arrow-blue)"/>
+                        </svg>
+                    </div>
+
+                    <p class="text-xs md:text-sm text-gray-600 mb-4 leading-relaxed">แรงตัดในงานกัด (Tangential Cutting Force) เกิดขึ้นจากการปาดของฟันคัตเตอร์ สามารถประมาณค่าได้จากแรงตัดจำเพาะ (Specific Cutting Force, \(K_c\))</p>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold text-gray-700 mb-2 text-sm md:text-base">1. การหาแรงตัด (\(F_c\)):</h4>
+                            <div class="text-center bg-white border py-3 mb-2 overflow-x-auto">
+                                \[ F_c = K_c \cdot a_p \cdot f_z \cdot Z_c \]
+                            </div>
+                            <ul class="text-xs text-gray-600 space-y-1">
+                                <li>\(K_c\) = แรงตัดจำเพาะของวัสดุ (N/mm²)</li>
+                                <li>\(a_p\) = ความลึกในการกัด (Depth of cut, mm)</li>
+                                <li>\(f_z\) = อัตราป้อนต่อฟัน (Feed/tooth, mm/tooth)</li>
+                                <li>\(Z_c\) = จำนวนฟันที่กำลังตัดชิ้นงานพร้อมกัน</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border border-green-100">
+                            <h4 class="font-semibold text-green-800 mb-2 text-sm md:text-base">2. แรงจับยึดที่ต้องการ (\(F_{clamp}\)):</h4>
+                            <div class="text-center bg-white border py-3 text-green-700 overflow-x-auto">
+                                \[ F_{clamp} = \frac{F_c \cdot S}{\mu} \]
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drilling Section -->
+                <div class="bg-white rounded-xl shadow-md p-5 md:p-8">
+                    <h2 class="text-lg md:text-xl font-bold text-slate-800 mb-4 flex items-center">
+                        <i class="fas fa-arrow-down text-red-500 mr-2"></i> 2. งานเจาะ (Drilling)
+                    </h2>
+
+                    <!-- Diagram Drilling (Top View) -->
+                    <div class="mb-6 border rounded-lg bg-slate-50 p-4 flex justify-center overflow-hidden">
+                        <svg viewBox="0 0 400 220" class="w-full max-w-md h-auto" style="font-family: Arial, sans-serif;">
+                            <text x="10" y="20" fill="#64748b" font-size="12" font-style="italic">Top View (มองจากด้านบน)</text>
+                            <rect x="80" y="40" width="30" height="140" fill="#94a3b8" rx="2" />
+                            <rect x="290" y="40" width="30" height="140" fill="#cbd5e1" rx="2" />
+                            <rect x="110" y="60" width="180" height="100" fill="#60a5fa" opacity="0.9" stroke="#1e3a8a" stroke-width="2"/>
+                            <circle cx="200" cy="110" r="15" fill="#1e293b" />
+                            <circle cx="200" cy="110" r="2" fill="#ffffff" />
+                            <path d="M 200 70 A 40 40 0 0 1 240 110" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+                            <text x="215" y="60" fill="#b91c1c" font-size="16" font-weight="bold" font-style="italic">M_c (Torque)</text>
+                            <line x1="110" y1="185" x2="290" y2="185" stroke="#475569" stroke-width="1" stroke-dasharray="4" />
+                            <line x1="110" y1="180" x2="110" y2="190" stroke="#475569" stroke-width="1" />
+                            <line x1="290" y1="180" x2="290" y2="190" stroke="#475569" stroke-width="1" />
+                            <text x="175" y="205" fill="#334155" font-size="14" font-weight="bold">D_clamp</text>
                             <line x1="35" y1="140" x2="75" y2="140" stroke="#22c55e" stroke-width="3" marker-end="url(#arrow-green)" />
                             <text x="10" y="130" fill="#166534" font-size="12" font-weight="bold">F_clamp</text>
-                            
-                            <!-- Right force (Top) -->
                             <line x1="365" y1="80" x2="325" y2="80" stroke="#22c55e" stroke-width="3" marker-end="url(#arrow-green)" />
                             <text x="335" y="70" fill="#166534" font-size="12" font-weight="bold">F_clamp</text>
                         </svg>
                     </div>
 
-                    <p class="text-sm text-gray-600 mb-4">ในงานเจาะ สิ่งที่พยายามทำให้ชิ้นงานขยับคือ <strong>แรงบิด (Torque, \(M_c\))</strong> ที่พยายามหมุนชิ้นงานตามดอกสว่าน ปากจับต้องสร้างโมเมนต์ต้านการหมุนนี้</p>
+                    <p class="text-xs md:text-sm text-gray-600 mb-4 leading-relaxed">ในงานเจาะ สิ่งที่พยายามทำให้ชิ้นงานขยับคือ <strong>แรงบิด (Torque, \(M_c\))</strong> ที่พยายามหมุนชิ้นงานตามดอกสว่าน ปากจับต้องสร้างโมเมนต์ต้านการหมุนนี้</p>
                     
                     <div class="space-y-4">
                         <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-                            <h4 class="font-semibold text-gray-700 mb-2">1. การหาแรงบิดตัด (\(M_c\)):</h4>
+                            <h4 class="font-semibold text-gray-700 mb-2 text-sm md:text-base">1. การหาแรงบิดตัด (\(M_c\)):</h4>
                             <div class="text-center bg-white border py-3 mb-2 overflow-x-auto">
                                 \[ M_c \approx \frac{K_c \cdot f \cdot d^2}{8000} \]
                             </div>
@@ -243,7 +353,7 @@
                             </ul>
                         </div>
                         <div class="bg-red-50 p-4 rounded-lg border border-red-100">
-                            <h4 class="font-semibold text-red-800 mb-2">2. แรงจับยึดต้านการหมุน (\(F_{clamp}\)):</h4>
+                            <h4 class="font-semibold text-red-800 mb-2 text-sm md:text-base">2. แรงจับยึดต้านการหมุน (\(F_{clamp}\)):</h4>
                             <div class="text-center bg-white border py-3 text-red-700 overflow-x-auto">
                                 \[ F_{clamp} = \frac{2 \cdot M_c \cdot 1000 \cdot S}{\mu \cdot D_{clamp}} \]
                             </div>
@@ -253,20 +363,112 @@
                 </div>
             </div>
 
+            <!-- Turning Section -->
+            <div class="bg-white rounded-xl shadow-md p-5 md:p-8">
+                <h2 class="text-lg md:text-xl font-bold text-slate-800 mb-4 flex items-center">
+                    <i class="fas fa-sync text-purple-500 mr-2"></i> 3. งานกลึง (Turning)
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <div>
+                        <!-- Diagram Turning (Top View) -->
+                        <div class="mb-4 border rounded-lg bg-slate-50 p-4 flex justify-center overflow-hidden">
+                            <svg viewBox="0 0 400 250" class="w-full max-w-md h-auto" style="font-family: Arial, sans-serif;">
+                                <text x="10" y="20" fill="#64748b" font-size="12" font-style="italic">Top View (มุมมองด้านบน)</text>
+                                
+                                <!-- Chuck Body -->
+                                <rect x="30" y="40" width="70" height="160" fill="#94a3b8" rx="2" />
+                                <text x="65" y="125" fill="#ffffff" font-size="14" font-weight="bold" transform="rotate(-90 65,125)">Chuck</text>
+                                
+                                <!-- Chuck Jaws -->
+                                <path d="M 100 60 L 130 60 L 130 85 L 100 85 Z" fill="#475569" />
+                                <path d="M 100 155 L 130 155 L 130 180 L 100 180 Z" fill="#475569" />
+
+                                <!-- Workpiece touching chuck body (Symmetrical step) -->
+                                <polygon points="100,85 210,85 210,95 310,95 310,145 210,145 210,155 100,155" fill="#60a5fa" opacity="0.9" stroke="#1e3a8a" stroke-width="2"/>
+                                <text x="140" y="125" fill="#ffffff" font-size="16" font-weight="bold">Workpiece</text>
+
+                                <!-- Turning Tool (At the BOTTOM, pointing UP to workpiece) -->
+                                <polygon points="252,160 268,160 268,220 252,220" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+                                <polygon points="260,145 252,160 268,160" fill="#d97706" />
+
+                                <!-- Force Arrows -->
+                                <!-- Cutting Force (Fc) acting on the tool -->
+                                <line x1="260" y1="115" x2="260" y2="140" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)" />
+                                <rect x="268" y="117" width="35" height="16" fill="white" opacity="0.8" rx="2"></rect>
+                                <text x="270" y="130" fill="#b91c1c" font-size="14" font-weight="bold" font-style="italic">F_c</text>
+
+                                <!-- Feed Force / Direction (Leftward) -->
+                                <line x1="300" y1="180" x2="275" y2="180" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow-blue)" />
+                                <text x="280" y="200" fill="#1d4ed8" font-size="12" font-weight="bold" font-style="italic">Feed (f)</text>
+
+                                <!-- Torque / Rotation -->
+                                <path d="M 65 90 A 35 35 0 0 1 100 125" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+                                <text x="45" y="80" fill="#b91c1c" font-size="14" font-weight="bold" font-style="italic">T_c</text>
+
+                                <!-- Gripping Forces (Fclamp) -->
+                                <line x1="115" y1="20" x2="115" y2="55" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-purple)" />
+                                <text x="120" y="40" fill="#7e22ce" font-size="12" font-weight="bold">F_clamp</text>
+
+                                <line x1="115" y1="230" x2="115" y2="195" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-purple)" />
+                                <text x="120" y="220" fill="#7e22ce" font-size="12" font-weight="bold">F_clamp</text>
+
+                                <!-- Diameters -->
+                                <!-- D chuck -->
+                                <line x1="145" y1="85" x2="145" y2="155" stroke="#475569" stroke-width="1" stroke-dasharray="4" />
+                                <rect x="150" y="112" width="55" height="16" fill="white" opacity="0.8" rx="2"></rect>
+                                <text x="152" y="125" fill="#334155" font-size="12" font-weight="bold">D_chuck</text>
+
+                                <!-- D cut -->
+                                <line x1="290" y1="95" x2="290" y2="145" stroke="#475569" stroke-width="1" stroke-dasharray="4" />
+                                <rect x="295" y="112" width="45" height="16" fill="white" opacity="0.8" rx="2"></rect>
+                                <text x="297" y="125" fill="#334155" font-size="12" font-weight="bold">D_cut</text>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <p class="text-xs md:text-sm text-gray-600 mb-4 leading-relaxed">ในงานกลึง หัวจับ (Chuck) ต้องสร้าง <strong>แรงบีบในแนวรัศมี (Radial Gripping Force)</strong> เพื่อสร้างแรงเสียดทานที่เอาชนะ <strong>แรงบิด (Torque, \(T_c\))</strong> จากมีดกลึง ซึ่งพยายามทำให้ชิ้นงานหยุดหมุน (Slip)</p>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-700 mb-2 text-sm md:text-base">1. การหาแรงตัด (\(F_c\)) และแรงบิด (\(T_c\)):</h4>
+                                <div class="text-center bg-white border py-3 mb-2 overflow-x-auto text-sm">
+                                    \[ F_c = K_c \cdot a_p \cdot f \]
+                                    <div class="my-2 border-t border-gray-100"></div>
+                                    \[ T_c = \frac{F_c \cdot D_{cut}}{2000} \]
+                                </div>
+                                <ul class="text-xs text-gray-600 space-y-1 mt-2">
+                                    <li>\(a_p\) = ความลึกในการปาด (Depth of cut, mm)</li>
+                                    <li>\(f\) = อัตราป้อน (Feed rate, mm/rev)</li>
+                                    <li>\(D_{cut}\) = เส้นผ่านศูนย์กลางที่กำลังตัดเฉือน (mm)</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg border border-purple-100">
+                                <h4 class="font-semibold text-purple-800 mb-2 text-sm md:text-base">2. แรงบีบรวมในแนวรัศมี (\(F_{clamp}\)):</h4>
+                                <div class="text-center bg-white border py-3 text-purple-700 overflow-x-auto">
+                                    \[ F_{clamp} = \frac{F_c \cdot D_{cut} \cdot S}{\mu \cdot D_{chuck}} \]
+                                </div>
+                                <p class="text-xs text-purple-600 mt-2 leading-relaxed">* สมการนี้คือ <strong>"แรงบีบรวมทั้งหมด (Total Grip Force)"</strong> หากเป็นหัวจับ 3 จับ (3-Jaw Chuck) แรงต่อ 1 ฟันจับจะเท่ากับ \( F_{clamp} / 3 \)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Jig & Fixture Extension -->
-            <div class="bg-slate-800 text-white rounded-xl shadow-md p-8 mt-8">
-                <h2 class="text-xl font-bold mb-4 border-b border-slate-600 pb-2"><i class="fas fa-tools text-gray-400 mr-2"></i>ข้อควรระวังในการออกแบบ Jig & Fixture</h2>
-                <p class="text-sm text-slate-300 mb-4">การคำนวณด้านบนคือการหา <strong>"แรงปฏิกิริยาขั้นต่ำที่ชิ้นงาน (Workpiece Required Force)"</strong> ในการออกแบบแคลมป์ (Clamp mechanism) จริง วิศวกรจะต้องคำนึงถึงสิ่งต่อไปนี้ร่วมด้วย:</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            <div class="bg-slate-800 text-white rounded-xl shadow-md p-5 md:p-8 mt-6 md:mt-8">
+                <h2 class="text-lg md:text-xl font-bold mb-4 border-b border-slate-600 pb-2"><i class="fas fa-tools text-gray-400 mr-2"></i>ข้อควรระวังในการออกแบบ Jig & Fixture และ หัวจับ</h2>
+                <p class="text-xs md:text-sm text-slate-300 mb-4">การคำนวณด้านบนคือการหา <strong>"แรงปฏิกิริยาขั้นต่ำที่ชิ้นงาน (Workpiece Required Force)"</strong> สภาวะ Static ในการทำงานจริง วิศวกรจะต้องคำนึงถึงสิ่งต่อไปนี้ร่วมด้วย:</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 text-xs md:text-sm">
                     <div class="bg-slate-700 p-4 rounded border border-slate-600">
-                        <h4 class="font-bold text-blue-300 mb-2">1. ประสิทธิภาพของกลไก (Mechanical Efficiency)</h4>
-                        <p class="text-slate-300">กลไกต่างๆ มีการสูญเสียแรง (Friction loss) ต้องคำนวณย้อนกลับไปหาแรงต้นกำลัง เช่น หากใช้แคลมป์เกลียว (Screw Clamp) ต้องคำนวณแรงบิด (Torque) ที่ใช้ขันประแจ: <br>
-                        <span class="block mt-2 font-mono bg-slate-800 p-2 text-center rounded">\( T = K \cdot D \cdot F_{clamp} \)</span>
-                        </p>
+                        <h4 class="font-bold text-blue-300 mb-2">1. แรงเหวี่ยงหนีศูนย์ในงานกลึง (Centrifugal Force Loss)</h4>
+                        <p class="text-slate-300 leading-relaxed">เมื่อหัวจับหมุนด้วยความเร็วรอบ (RPM) สูงๆ น้ำหนักของฟันจับ (Jaws) จะพยายามเหวี่ยงตัวออกด้านนอก ทำให้ <strong>"แรงบีบที่กระทำต่อชิ้นงานลดลงอย่างมาก"</strong> วิศวกรต้องตรวจสอบกราฟ Grip Force vs RPM จากคู่มือหัวจับเสมอ</p>
                     </div>
                     <div class="bg-slate-700 p-4 rounded border border-slate-600">
-                        <h4 class="font-bold text-blue-300 mb-2">2. ทิศทางของแรง (Force Vectors)</h4>
-                        <p class="text-slate-300">พยายามออกแบบให้ <strong>"แรงตัด"</strong> ดันชิ้นงานเข้าหา <strong>"ตัวอ้างอิงที่แข็งแรงที่สุด (Fixed Locators)"</strong> เสมอ ไม่ใช่ออกแบบให้แคลมป์ต้องต้านแรงตัดโดยตรง (ถ้าทำได้จะลดภาระ \(F_{clamp}\) ลงได้มาก)</p>
+                        <h4 class="font-bold text-blue-300 mb-2">2. ประสิทธิภาพของกลไก (Mechanical Efficiency)</h4>
+                        <p class="text-slate-300 leading-relaxed">กลไกต่างๆ มีการสูญเสียแรง (Friction loss) ต้องคำนวณย้อนกลับไปหาแรงต้นกำลัง เช่น หากใช้แคลมป์เกลียว (Screw Clamp) ต้องคำนวณแรงบิด (Torque) ที่ใช้ขันประแจ: <br>
+                        <span class="block mt-2 font-mono bg-slate-800 p-2 text-center rounded overflow-x-auto">\( T = K \cdot D \cdot F_{clamp} \)</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -275,29 +477,30 @@
 
         <!-- TAB: Calculator -->
         <div id="calculator" class="tab-content">
-            <div class="bg-white rounded-xl shadow-lg p-8 max-w-4xl mx-auto">
-                <div class="text-center mb-8">
-                    <h2 class="text-2xl font-bold text-slate-800"><i class="fas fa-calculator text-blue-500 mr-2"></i>โปรแกรมคำนวณแรงจับยึด (Clamping Force Calculator)</h2>
-                    <p class="text-gray-500">ใส่พารามิเตอร์เพื่อประเมินแรงจับยึดที่เหมาะสมในการออกแบบ Fixture หรือตั้งค่า Vise</p>
+            <div class="bg-white rounded-xl shadow-lg p-5 md:p-8 max-w-4xl mx-auto">
+                <div class="text-center mb-6 md:mb-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-800"><i class="fas fa-calculator text-blue-500 mr-2"></i>โปรแกรมคำนวณแรงจับยึด (Clamping Force Calculator)</h2>
+                    <p class="text-sm md:text-base text-gray-500 mt-2">ใส่พารามิเตอร์เพื่อประเมินแรงจับยึดที่เหมาะสมในการออกแบบ Fixture หรือตั้งค่า Vise/Chuck</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
                     <!-- Input Section -->
-                    <div class="space-y-5 border-r lg:pr-8 border-gray-200">
+                    <div class="space-y-4 md:space-y-5 border-b lg:border-b-0 lg:border-r pb-6 lg:pb-0 lg:pr-8 border-gray-200">
                         
                         <!-- Operation Type -->
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-1">ประเภทงาน (Operation)</label>
-                            <select id="calc-op" onchange="toggleCalcInputs()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                            <select id="calc-op" onchange="toggleCalcInputs()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 shadow-sm">
                                 <option value="milling">งานกัด (Milling)</option>
                                 <option value="drilling">งานเจาะ (Drilling)</option>
+                                <option value="turning">งานกลึง (Turning)</option>
                             </select>
                         </div>
 
                         <!-- Material Selection -->
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-1">วัสดุชิ้นงาน (Material)</label>
-                            <select id="calc-mat" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5">
+                            <select id="calc-mat" onchange="performCalculation()" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 shadow-sm">
                                 <option value="700">Aluminum Alloy (Kc ≈ 700 N/mm²)</option>
                                 <option value="1500">Cast Iron / เหล็กหล่อ (Kc ≈ 1500 N/mm²)</option>
                                 <option value="2500" selected>Carbon Steel / เหล็กกล้าคาร์บอน (Kc ≈ 2500 N/mm²)</option>
@@ -310,7 +513,7 @@
                             <h4 class="text-sm font-bold text-green-800"><i class="fas fa-sliders-h mr-1"></i> พารามิเตอร์งานกัด</h4>
                             
                             <!-- Diagram Milling in Calculator -->
-                            <div class="bg-white border border-green-100 rounded p-2 flex justify-center shadow-sm">
+                            <div class="bg-white border border-green-100 rounded p-2 flex justify-center shadow-sm overflow-hidden">
                                 <svg viewBox="0 0 400 220" class="w-full max-w-sm h-auto" style="font-family: Arial, sans-serif;">
                                     <rect x="50" y="100" width="40" height="100" fill="#94a3b8" rx="2" />
                                     <text x="55" y="155" fill="#ffffff" font-size="12" font-weight="bold" transform="rotate(-90 55,155)">Fixed Jaw</text>
@@ -330,18 +533,18 @@
                                 </svg>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-medium text-gray-700">Depth of Cut (ap) [mm]</label>
-                                    <input type="number" id="m-ap" value="2.0" step="0.1" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <input type="number" id="m-ap" value="2.0" step="0.1" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-medium text-gray-700">Feed/tooth (fz) [mm]</label>
-                                    <input type="number" id="m-fz" value="0.15" step="0.01" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <input type="number" id="m-fz" value="0.15" step="0.01" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
                                 </div>
-                                <div class="col-span-2">
+                                <div class="col-span-1 sm:col-span-2">
                                     <label class="block text-xs font-medium text-gray-700">จำนวนฟันที่ตัดพร้อมกัน (Zc) [ซี่]</label>
-                                    <input type="number" id="m-zc" value="2" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <input type="number" id="m-zc" value="2" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
                                 </div>
                             </div>
                         </div>
@@ -351,7 +554,7 @@
                             <h4 class="text-sm font-bold text-red-800"><i class="fas fa-sliders-h mr-1"></i> พารามิเตอร์งานเจาะ</h4>
                             
                             <!-- Diagram Drilling in Calculator -->
-                            <div class="bg-white border border-red-100 rounded p-2 flex justify-center shadow-sm">
+                            <div class="bg-white border border-red-100 rounded p-2 flex justify-center shadow-sm overflow-hidden">
                                 <svg viewBox="0 0 400 220" class="w-full max-w-sm h-auto" style="font-family: Arial, sans-serif;">
                                     <rect x="80" y="40" width="30" height="140" fill="#94a3b8" rx="2" />
                                     <rect x="290" y="40" width="30" height="140" fill="#cbd5e1" rx="2" />
@@ -371,18 +574,89 @@
                                 </svg>
                             </div>
 
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-medium text-gray-700">Drill Diameter (d) [mm]</label>
-                                    <input type="number" id="d-d" value="10.0" step="0.5" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <input type="number" id="d-d" value="10.0" step="0.5" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
                                 </div>
                                 <div>
                                     <label class="block text-xs font-medium text-gray-700">Feed (f) [mm/rev]</label>
-                                    <input type="number" id="d-f" value="0.2" step="0.01" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <input type="number" id="d-f" value="0.2" step="0.01" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
                                 </div>
-                                <div class="col-span-2">
+                                <div class="col-span-1 sm:col-span-2">
                                     <label class="block text-xs font-medium text-gray-700">ระยะจับยึด (Clamp Width, D_clamp) [mm]</label>
-                                    <input type="number" id="d-width" value="50.0" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <input type="number" id="d-width" value="50.0" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Turning Inputs -->
+                        <div id="input-turning" class="space-y-4 p-4 bg-purple-50 rounded-lg border border-purple-200 hidden">
+                            <h4 class="text-sm font-bold text-purple-800"><i class="fas fa-sliders-h mr-1"></i> พารามิเตอร์งานกลึง</h4>
+                            
+                            <!-- Diagram Turning in Calculator -->
+                            <div class="bg-white border border-purple-100 rounded p-2 flex justify-center shadow-sm overflow-hidden">
+                                <svg viewBox="0 0 400 250" class="w-full max-w-sm h-auto" style="font-family: Arial, sans-serif;">
+                                    <rect id="svg-t-chuck-body" x="30" y="45" width="70" height="160" fill="#94a3b8" rx="2" />
+                                    <text id="svg-t-chuck-text" x="65" y="125" fill="#ffffff" font-size="14" font-weight="bold" transform="rotate(-90 65,125)">Chuck</text>
+                                    
+                                    <path id="svg-t-jaw-top" d="M 100 60 L 130 60 L 130 85 L 100 85 Z" fill="#475569" />
+                                    <path id="svg-t-jaw-bot" d="M 100 165 L 130 165 L 130 190 L 100 190 Z" fill="#475569" />
+                                    
+                                    <!-- Workpiece touching chuck body at X=100 (Symmetrical Step) -->
+                                    <polygon id="svg-t-workpiece" points="100,85 210,85 210,105 310,105 310,145 210,145 210,165 100,165" fill="#60a5fa" opacity="0.9" stroke="#1e3a8a" stroke-width="2"/>
+                                    
+                                    <!-- Tool pointing UP from BOTTOM -->
+                                    <polygon id="svg-t-tool-holder" points="252,160 268,160 268,220 252,220" fill="#fbbf24" stroke="#b45309" stroke-width="2"/>
+                                    <polygon id="svg-t-tool-tip" points="260,145 252,160 268,160" fill="#d97706" />
+
+                                    <!-- Fc Arrow -->
+                                    <line id="svg-t-arrow-fc" x1="260" y1="115" x2="260" y2="140" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)" />
+                                    <rect id="svg-t-bg-fc" x="268" y="117" width="60" height="16" fill="white" opacity="0.8" rx="2"></rect>
+                                    <text id="svg-t-fc-text" x="270" y="130" fill="#b91c1c" font-size="14" font-weight="bold" font-style="italic">F_c</text>
+
+                                    <!-- Feed Force / Direction (Left) -->
+                                    <line id="svg-t-arrow-feed" x1="300" y1="180" x2="275" y2="180" stroke="#3b82f6" stroke-width="3" marker-end="url(#arrow-blue)" />
+                                    <text id="svg-t-feed-text" x="275" y="195" fill="#1d4ed8" font-size="12" font-weight="bold" font-style="italic">Feed (f)</text>
+
+                                    <!-- Torque / Rotation -->
+                                    <path id="svg-t-torque-arrow" d="M 65 90 A 35 35 0 0 1 100 125" fill="none" stroke="#ef4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+                                    <text id="svg-t-tc-text" x="45" y="80" fill="#b91c1c" font-size="14" font-weight="bold" font-style="italic">T_c</text>
+
+                                    <!-- Clamping Forces -->
+                                    <line id="svg-t-arrow-clamp1" x1="115" y1="20" x2="115" y2="55" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-purple)" />
+                                    <text id="svg-t-fclamp1-text" x="60" y="30" fill="#7e22ce" font-size="12" font-weight="bold">F_clamp</text>
+
+                                    <line id="svg-t-arrow-clamp2" x1="115" y1="230" x2="115" y2="195" stroke="#a855f7" stroke-width="3" marker-end="url(#arrow-purple)" />
+                                    <text id="svg-t-fclamp2-text" x="60" y="225" fill="#7e22ce" font-size="12" font-weight="bold">F_clamp</text>
+
+                                    <!-- Dimensions -->
+                                    <line id="svg-t-line-dchuck" x1="145" y1="85" x2="145" y2="165" stroke="#475569" stroke-width="1" stroke-dasharray="4" />
+                                    <rect id="svg-t-bg-dchuck" x="150" y="117" width="70" height="16" fill="white" opacity="0.8" rx="2"></rect>
+                                    <text id="svg-t-dchuck" x="152" y="130" fill="#334155" font-size="12" font-weight="bold">D_chuck</text>
+
+                                    <line id="svg-t-line-dcut" x1="290" y1="105" x2="290" y2="145" stroke="#475569" stroke-width="1" stroke-dasharray="4" />
+                                    <rect id="svg-t-bg-dcut" x="295" y="117" width="60" height="16" fill="white" opacity="0.8" rx="2"></rect>
+                                    <text id="svg-t-dcut" x="297" y="130" fill="#334155" font-size="12" font-weight="bold">D_cut</text>
+                                </svg>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">Depth of Cut (ap) [mm]</label>
+                                    <input type="number" id="t-ap" value="2.0" step="0.1" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">Feed (f) [mm/rev]</label>
+                                    <input type="number" id="t-f" value="0.25" step="0.01" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">Dia. ตัดเฉือน (D_cut) [mm]</label>
+                                    <input type="number" id="t-d" value="80.0" step="1" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">Dia. จับยึด (D_chuck) [mm]</label>
+                                    <input type="number" id="t-dchuck" value="50.0" step="1" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
                                 </div>
                             </div>
                         </div>
@@ -390,82 +664,99 @@
                         <!-- Common Constants -->
                         <div class="space-y-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                             <h4 class="text-sm font-bold text-gray-800"><i class="fas fa-lock mr-1"></i> ตัวแปรการจับยึด</h4>
-                            <div class="grid grid-cols-2 gap-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label class="block text-xs font-medium text-gray-700">Friction Coeff (μ)</label>
-                                    <select id="calc-mu" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <select id="calc-mu" onchange="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm shadow-sm">
                                         <option value="0.15">0.15 (เหล็กเรียบ-เหล็กเรียบ)</option>
                                         <option value="0.30" selected>0.30 (เหล็กหยาบ-เหล็ก)</option>
-                                        <option value="0.45">0.45 (มีปากจับฟันฉลาม)</option>
+                                        <option value="0.45">0.45 (มีปากจับฟันฉลาม/Serrated)</option>
                                     </select>
                                 </div>
                                 <div>
                                     <label class="block text-xs font-medium text-gray-700">Safety Factor (S)</label>
-                                    <input type="number" id="calc-sf" value="2.0" step="0.5" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
+                                    <input type="number" id="calc-sf" value="2.0" step="0.5" oninput="performCalculation()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm">
                                 </div>
                             </div>
                         </div>
                         
-                        <button onclick="performCalculation()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition shadow-md">
-                            <i class="fas fa-cogs mr-2"></i> คำนวณผลลัพธ์ (Calculate)
+                        <button onclick="performCalculation()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition shadow-md md:hidden">
+                            <i class="fas fa-cogs mr-2"></i> อัปเดตการคำนวณ
                         </button>
                     </div>
 
                     <!-- Output Section -->
-                    <div class="flex flex-col justify-center items-center bg-slate-800 text-white p-8 rounded-xl shadow-inner relative overflow-hidden">
+                    <div class="flex flex-col justify-center items-center bg-slate-800 text-white p-6 md:p-8 rounded-xl shadow-inner relative overflow-hidden">
                         <div class="absolute top-0 right-0 p-4 opacity-10">
-                            <i class="fas fa-chart-bar text-9xl"></i>
+                            <i class="fas fa-chart-bar text-8xl md:text-9xl"></i>
                         </div>
                         
-                        <h3 class="text-lg font-medium text-blue-300 mb-6 z-10 uppercase tracking-wider">ผลการประเมิน (Results)</h3>
+                        <h3 class="text-base md:text-lg font-medium text-blue-300 mb-6 z-10 uppercase tracking-wider">ผลการประเมิน (Results)</h3>
                         
                         <!-- Milling Output -->
                         <div id="output-milling" class="w-full text-center z-10">
                             <div class="mb-6">
-                                <p class="text-sm text-gray-400 mb-1">แรงตัดที่เกิดขึ้น (Cutting Force, Fc)</p>
-                                <p class="text-3xl font-bold text-green-400"><span id="res-fc">0.00</span> <span class="text-lg font-normal text-gray-300">N</span></p>
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">แรงตัดที่เกิดขึ้น (Cutting Force, Fc)</p>
+                                <p class="text-2xl md:text-3xl font-bold text-green-400"><span id="res-fc">0.00</span> <span class="text-base md:text-lg font-normal text-gray-300">N</span></p>
                             </div>
                             <div class="w-full h-px bg-slate-600 mb-6"></div>
                             <div>
-                                <p class="text-sm text-gray-400 mb-1">แรงจับยึดขั้นต่ำที่ต้องการ (Required Clamping Force)</p>
-                                <p class="text-5xl font-bold text-yellow-400 mb-2"><span id="res-fclamp-m">0.00</span></p>
-                                <p class="text-xl text-gray-300">นิวตัน (N)</p>
-                                <p class="text-sm text-gray-400 mt-2">หรือ ≈ <span id="res-fclamp-m-kg" class="text-white font-semibold">0</span> kgf</p>
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">แรงจับยึดขั้นต่ำที่ต้องการ (Required Clamping Force)</p>
+                                <p class="text-4xl md:text-5xl font-bold text-yellow-400 mb-2"><span id="res-fclamp-m">0.00</span></p>
+                                <p class="text-lg md:text-xl text-gray-300">นิวตัน (N)</p>
+                                <p class="text-xs md:text-sm text-gray-400 mt-2">หรือ ≈ <span id="res-fclamp-m-kg" class="text-white font-semibold">0</span> kgf</p>
                             </div>
                         </div>
 
                         <!-- Drilling Output -->
                         <div id="output-drilling" class="w-full text-center z-10 hidden">
                             <div class="mb-6">
-                                <p class="text-sm text-gray-400 mb-1">แรงบิดที่เกิดขึ้น (Torque, Mc)</p>
-                                <p class="text-3xl font-bold text-red-400"><span id="res-mc">0.00</span> <span class="text-lg font-normal text-gray-300">Nm</span></p>
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">แรงบิดที่เกิดขึ้น (Torque, Mc)</p>
+                                <p class="text-2xl md:text-3xl font-bold text-red-400"><span id="res-mc">0.00</span> <span class="text-base md:text-lg font-normal text-gray-300">Nm</span></p>
                             </div>
                             <div class="w-full h-px bg-slate-600 mb-6"></div>
                             <div>
-                                <p class="text-sm text-gray-400 mb-1">แรงจับยึดต้านการหมุนที่ต้องการ (Required Clamping Force)</p>
-                                <p class="text-5xl font-bold text-yellow-400 mb-2"><span id="res-fclamp-d">0.00</span></p>
-                                <p class="text-xl text-gray-300">นิวตัน (N)</p>
-                                <p class="text-sm text-gray-400 mt-2">หรือ ≈ <span id="res-fclamp-d-kg" class="text-white font-semibold">0</span> kgf</p>
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">แรงจับยึดต้านการหมุนที่ต้องการ (Required Clamping Force)</p>
+                                <p class="text-4xl md:text-5xl font-bold text-yellow-400 mb-2"><span id="res-fclamp-d">0.00</span></p>
+                                <p class="text-lg md:text-xl text-gray-300">นิวตัน (N)</p>
+                                <p class="text-xs md:text-sm text-gray-400 mt-2">หรือ ≈ <span id="res-fclamp-d-kg" class="text-white font-semibold">0</span> kgf</p>
+                            </div>
+                        </div>
+
+                        <!-- Turning Output -->
+                        <div id="output-turning" class="w-full text-center z-10 hidden">
+                            <div class="mb-6">
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">แรงตัด (Fc) และ แรงบิด (Tc)</p>
+                                <p class="text-xl md:text-2xl font-bold text-purple-400"><span id="res-fc-t">0.00</span> <span class="text-xs md:text-sm font-normal text-gray-300">N</span></p>
+                                <p class="text-lg md:text-xl font-bold text-red-400 mt-1"><span id="res-tc-t">0.00</span> <span class="text-xs md:text-sm font-normal text-gray-300">Nm</span></p>
+                            </div>
+                            <div class="w-full h-px bg-slate-600 mb-6"></div>
+                            <div>
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">แรงบีบรวมแนวรัศมีขั้นต่ำ (Total Radial Grip Force)</p>
+                                <p class="text-4xl md:text-5xl font-bold text-yellow-400 mb-2"><span id="res-fclamp-t">0.00</span></p>
+                                <p class="text-lg md:text-xl text-gray-300">นิวตัน (N)</p>
+                                <p class="text-xs md:text-sm text-gray-400 mt-2">หรือ ≈ <span id="res-fclamp-t-kg" class="text-white font-semibold">0</span> kgf</p>
                             </div>
                         </div>
                         
                         <!-- Mechanism Selection Block -->
-                        <div class="mt-6 w-full bg-slate-700 p-5 rounded-lg border border-slate-600 z-10 text-left">
-                            <h4 class="text-sm font-bold text-blue-300 mb-3"><i class="fas fa-wrench mr-2"></i>ประยุกต์ใช้กับกลไกจับยึด (Mechanism Selection)</h4>
-                            <label class="block text-xs text-slate-300 mb-1">ลองเลือกอุปกรณ์จับยึดเพื่อวิเคราะห์ขนาดที่เหมาะสม:</label>
-                            <select id="calc-mech" onchange="performCalculation()" class="w-full bg-slate-800 border border-slate-600 text-white text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2 mb-3 outline-none">
+                        <div class="mt-6 w-full bg-slate-700 p-4 md:p-5 rounded-lg border border-slate-600 z-10 text-left">
+                            <h4 class="text-xs md:text-sm font-bold text-blue-300 mb-3"><i class="fas fa-wrench mr-2"></i>ประยุกต์ใช้กับกลไกจับยึด (Mechanism Selection)</h4>
+                            <label class="block text-[10px] md:text-xs text-slate-300 mb-1">ลองเลือกอุปกรณ์จับยึดเพื่อวิเคราะห์ขนาดที่เหมาะสม:</label>
+                            <select id="calc-mech" onchange="performCalculation()" class="w-full bg-slate-800 border border-slate-600 text-white text-xs md:text-sm rounded focus:ring-blue-500 focus:border-blue-500 block p-2 mb-3 outline-none">
                                 <option value="vise">1. ปากกาจับงาน (Machine Vise)</option>
                                 <option value="toggle">2. ท็อกเกิลแคลมป์ (Toggle Clamp - ใช้ 2 จุด)</option>
                                 <option value="pneumatic">3. ระบบกระบอกลม (Pneumatic Cylinder)</option>
                                 <option value="screw">4. ระบบสกรูขันเกลียว (Screw Clamp)</option>
                                 <option value="strap">5. บาร์แคลมป์ (Bar/Strap Clamp)</option>
+                                <option value="chuck">6. หัวจับเครื่องกลึง 3 จับ (Lathe 3-Jaw Chuck)</option>
                             </select>
-                            <div id="mech-result" class="text-sm text-blue-100 bg-slate-800 p-4 rounded border border-slate-600 leading-relaxed shadow-inner">
+                            <div id="mech-result" class="text-xs md:text-sm text-blue-100 bg-slate-800 p-3 md:p-4 rounded border border-slate-600 leading-relaxed shadow-inner">
                                 <!-- Dynamic Mechanism Results -->
                             </div>
                         </div>
 
-                        <div class="mt-4 text-xs text-gray-400 bg-slate-900 p-3 rounded text-left z-10 w-full border border-slate-700">
+                        <div class="mt-4 text-[10px] md:text-xs text-gray-400 bg-slate-900 p-3 rounded text-left z-10 w-full border border-slate-700 leading-relaxed">
                             <i class="fas fa-exclamation-triangle text-yellow-500 mr-1"></i> <strong>คำเตือนวิศวกร:</strong> ค่าที่ได้เป็นการประเมินตามทฤษฎี (Theoretical Estimation) ในการออกแบบจริงควรพิจารณาความแข็งเกร็งของ Fixture (Rigidity) และทิศทางของแรงประกอบด้วย
                         </div>
                     </div>
@@ -475,53 +766,57 @@
 
         <!-- TAB: Reference -->
         <div id="reference" class="tab-content">
-            <div class="bg-white rounded-xl shadow-md p-8">
-                <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2"><i class="fas fa-table text-blue-500 mr-2"></i>ตารางอ้างอิงวิศวกรรม (Engineering Reference Data)</h2>
+            <div class="bg-white rounded-xl shadow-md p-5 md:p-8">
+                <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-6 border-b pb-2"><i class="fas fa-table text-blue-500 mr-2"></i>ตารางอ้างอิงวิศวกรรม (Engineering Reference Data)</h2>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="grid grid-cols-1 gap-8">
                     <!-- Specific Cutting Force Table -->
-                    <div>
-                        <h3 class="font-bold text-lg text-gray-700 mb-3 bg-gray-100 p-2 rounded">ค่าแรงตัดจำเพาะ (Specific Cutting Force, <span class="math-equation">K_c</span>)</h3>
-                        <table class="w-full text-sm text-left text-gray-600 border-collapse border border-gray-200">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
-                                <tr>
-                                    <th class="border border-gray-300 px-4 py-2">กลุ่มวัสดุ (ISO)</th>
-                                    <th class="border border-gray-300 px-4 py-2">วัสดุตัวอย่าง</th>
-                                    <th class="border border-gray-300 px-4 py-2 text-center">Kc (N/mm²)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td class="border border-gray-300 px-4 py-2 font-bold text-blue-600">P</td><td class="border border-gray-300 px-4 py-2">Low Carbon Steel</td><td class="border border-gray-300 px-4 py-2 text-center">1500 - 1800</td></tr>
-                                <tr class="bg-gray-50"><td class="border border-gray-300 px-4 py-2 font-bold text-blue-600">P</td><td class="border border-gray-300 px-4 py-2">Alloy Steel (Hardened)</td><td class="border border-gray-300 px-4 py-2 text-center">2500 - 3000</td></tr>
-                                <tr><td class="border border-gray-300 px-4 py-2 font-bold text-yellow-500">M</td><td class="border border-gray-300 px-4 py-2">Stainless Steel</td><td class="border border-gray-300 px-4 py-2 text-center">2400 - 3200</td></tr>
-                                <tr class="bg-gray-50"><td class="border border-gray-300 px-4 py-2 font-bold text-red-500">K</td><td class="border border-gray-300 px-4 py-2">Cast Iron (เหล็กหล่อ)</td><td class="border border-gray-300 px-4 py-2 text-center">1100 - 1500</td></tr>
-                                <tr><td class="border border-gray-300 px-4 py-2 font-bold text-green-500">N</td><td class="border border-gray-300 px-4 py-2">Aluminum Alloys</td><td class="border border-gray-300 px-4 py-2 text-center">600 - 800</td></tr>
-                                <tr class="bg-gray-50"><td class="border border-gray-300 px-4 py-2 font-bold text-orange-500">S</td><td class="border border-gray-300 px-4 py-2">Titanium / Inconel</td><td class="border border-gray-300 px-4 py-2 text-center">2800 - 3500</td></tr>
-                            </tbody>
-                        </table>
+                    <div class="w-full">
+                        <h3 class="font-bold text-base md:text-lg text-gray-700 mb-3 bg-gray-100 p-2 rounded">ค่าแรงตัดจำเพาะ (Specific Cutting Force, <span class="math-equation">K_c</span>)</h3>
+                        <div class="overflow-x-auto rounded-lg border border-gray-200">
+                            <table class="w-full text-sm text-left text-gray-600 min-w-[500px]">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                    <tr>
+                                        <th class="border-b border-gray-300 px-4 py-3">กลุ่มวัสดุ (ISO)</th>
+                                        <th class="border-b border-gray-300 px-4 py-3">วัสดุตัวอย่าง</th>
+                                        <th class="border-b border-gray-300 px-4 py-3 text-center">Kc (N/mm²)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="border-b border-gray-200 px-4 py-2 font-bold text-blue-600">P</td><td class="border-b border-gray-200 px-4 py-2">Low Carbon Steel</td><td class="border-b border-gray-200 px-4 py-2 text-center">1500 - 1800</td></tr>
+                                    <tr class="bg-gray-50"><td class="border-b border-gray-200 px-4 py-2 font-bold text-blue-600">P</td><td class="border-b border-gray-200 px-4 py-2">Alloy Steel (Hardened)</td><td class="border-b border-gray-200 px-4 py-2 text-center">2500 - 3000</td></tr>
+                                    <tr><td class="border-b border-gray-200 px-4 py-2 font-bold text-yellow-500">M</td><td class="border-b border-gray-200 px-4 py-2">Stainless Steel</td><td class="border-b border-gray-200 px-4 py-2 text-center">2400 - 3200</td></tr>
+                                    <tr class="bg-gray-50"><td class="border-b border-gray-200 px-4 py-2 font-bold text-red-500">K</td><td class="border-b border-gray-200 px-4 py-2">Cast Iron (เหล็กหล่อ)</td><td class="border-b border-gray-200 px-4 py-2 text-center">1100 - 1500</td></tr>
+                                    <tr><td class="border-b border-gray-200 px-4 py-2 font-bold text-green-500">N</td><td class="border-b border-gray-200 px-4 py-2">Aluminum Alloys</td><td class="border-b border-gray-200 px-4 py-2 text-center">600 - 800</td></tr>
+                                    <tr class="bg-gray-50"><td class="border-b border-gray-200 px-4 py-2 font-bold text-orange-500">S</td><td class="border-b border-gray-200 px-4 py-2">Titanium / Inconel</td><td class="border-b border-gray-200 px-4 py-2 text-center">2800 - 3500</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
                         <p class="text-xs text-gray-500 mt-2">* ค่า Kc แปรผันตามความหนาของเศษตัด (Chip thickness)</p>
                     </div>
 
                     <!-- Friction Coefficient Table -->
-                    <div>
-                        <h3 class="font-bold text-lg text-gray-700 mb-3 bg-gray-100 p-2 rounded">สัมประสิทธิ์ความเสียดทาน (Friction Coefficient, <span class="math-equation">μ</span>)</h3>
-                        <table class="w-full text-sm text-left text-gray-600 border-collapse border border-gray-200">
-                            <thead class="text-xs text-gray-700 uppercase bg-gray-100">
-                                <tr>
-                                    <th class="border border-gray-300 px-4 py-2">สภาวะของผิวหน้าสัมผัส (ชิ้นงาน - ปากจับ)</th>
-                                    <th class="border border-gray-300 px-4 py-2 text-center">ค่า μ (โดยประมาณ)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td class="border border-gray-300 px-4 py-2">เหล็กผิวเรียบ - เหล็กผิวเรียบ (มีน้ำมันหล่อเย็น)</td><td class="border border-gray-300 px-4 py-2 text-center">0.10 - 0.15</td></tr>
-                                <tr class="bg-gray-50"><td class="border border-gray-300 px-4 py-2">เหล็กผิวเรียบ - เหล็กผิวเรียบ (แห้ง)</td><td class="border border-gray-300 px-4 py-2 text-center">0.15 - 0.20</td></tr>
-                                <tr><td class="border border-gray-300 px-4 py-2">เหล็กผิวหยาบ (Raw) - เหล็กปากจับเรียบ</td><td class="border border-gray-300 px-4 py-2 text-center">0.25 - 0.30</td></tr>
-                                <tr class="bg-gray-50"><td class="border border-gray-300 px-4 py-2">อลูมิเนียม - เหล็ก</td><td class="border border-gray-300 px-4 py-2 text-center">0.20 - 0.30</td></tr>
-                                <tr><td class="border border-gray-300 px-4 py-2">ใช้ปากจับแบบมีฟัน (Serrated Jaws) ขบเข้าชิ้นงาน</td><td class="border border-gray-300 px-4 py-2 text-center">0.40 - 0.60</td></tr>
-                                <tr class="bg-gray-50"><td class="border border-gray-300 px-4 py-2">ปากจับพลาสติก/ยูรีเทน - โลหะ</td><td class="border border-gray-300 px-4 py-2 text-center">0.30 - 0.40</td></tr>
-                            </tbody>
-                        </table>
-                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 mt-4 text-sm text-yellow-800">
+                    <div class="w-full">
+                        <h3 class="font-bold text-base md:text-lg text-gray-700 mb-3 bg-gray-100 p-2 rounded">สัมประสิทธิ์ความเสียดทาน (Friction Coefficient, <span class="math-equation">μ</span>)</h3>
+                        <div class="overflow-x-auto rounded-lg border border-gray-200">
+                            <table class="w-full text-sm text-left text-gray-600 min-w-[500px]">
+                                <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                                    <tr>
+                                        <th class="border-b border-gray-300 px-4 py-3">สภาวะของผิวหน้าสัมผัส (ชิ้นงาน - ปากจับ)</th>
+                                        <th class="border-b border-gray-300 px-4 py-3 text-center">ค่า μ (โดยประมาณ)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="border-b border-gray-200 px-4 py-2">เหล็กผิวเรียบ - เหล็กผิวเรียบ (มีน้ำมันหล่อเย็น)</td><td class="border-b border-gray-200 px-4 py-2 text-center">0.10 - 0.15</td></tr>
+                                    <tr class="bg-gray-50"><td class="border-b border-gray-200 px-4 py-2">เหล็กผิวเรียบ - เหล็กผิวเรียบ (แห้ง)</td><td class="border-b border-gray-200 px-4 py-2 text-center">0.15 - 0.20</td></tr>
+                                    <tr><td class="border-b border-gray-200 px-4 py-2">เหล็กผิวหยาบ (Raw) - เหล็กปากจับเรียบ</td><td class="border-b border-gray-200 px-4 py-2 text-center">0.25 - 0.30</td></tr>
+                                    <tr class="bg-gray-50"><td class="border-b border-gray-200 px-4 py-2">อลูมิเนียม - เหล็ก</td><td class="border-b border-gray-200 px-4 py-2 text-center">0.20 - 0.30</td></tr>
+                                    <tr><td class="border-b border-gray-200 px-4 py-2">ใช้ปากจับแบบมีฟัน (Serrated Jaws) ขบเข้าชิ้นงาน</td><td class="border-b border-gray-200 px-4 py-2 text-center">0.40 - 0.60</td></tr>
+                                    <tr class="bg-gray-50"><td class="border-b border-gray-200 px-4 py-2">ปากจับพลาสติก/ยูรีเทน - โลหะ</td><td class="border-b border-gray-200 px-4 py-2 text-center">0.30 - 0.40</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3 mt-4 text-xs md:text-sm text-yellow-800 leading-relaxed">
                             <strong>Tip:</strong> หากแรงจับยึดที่คำนวณได้สูงเกินกว่าที่ Vise จะรับได้ การเปลี่ยนไปใช้ปากจับแบบ Serrated (ฟันฉลาม) จะช่วยเพิ่มค่า μ และลดแรงที่ต้องใช้บีบชิ้นงานลงได้อย่างมาก
                         </div>
                     </div>
@@ -531,7 +826,7 @@
 
     </main>
 
-    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-8">
+    <footer class="bg-slate-800 text-slate-400 text-center py-6 mt-4 md:mt-8">
         <p class="text-sm">Developed for Production Engineering Education</p>
     </footer>
 
@@ -619,20 +914,32 @@
             }
         }
 
-        // Toggle UI between Milling and Drilling
+        // Toggle UI between Milling, Drilling, Turning
         function toggleCalcInputs() {
             const op = document.getElementById('calc-op').value;
-            if (op === 'milling') {
-                document.getElementById('input-milling').classList.remove('hidden');
-                document.getElementById('input-drilling').classList.add('hidden');
-                document.getElementById('output-milling').classList.remove('hidden');
-                document.getElementById('output-drilling').classList.add('hidden');
-            } else {
-                document.getElementById('input-milling').classList.add('hidden');
-                document.getElementById('input-drilling').classList.remove('hidden');
-                document.getElementById('output-milling').classList.add('hidden');
-                document.getElementById('output-drilling').classList.remove('hidden');
+            const operations = ['milling', 'drilling', 'turning'];
+            
+            // Auto select suitable mechanism based on operation (UX Polish)
+            const mechSelect = document.getElementById('calc-mech');
+            if(op === 'turning') {
+                mechSelect.value = 'chuck';
+            } else if (op === 'drilling' && mechSelect.value === 'chuck') {
+                mechSelect.value = 'vise';
+            } else if (op === 'milling' && mechSelect.value === 'chuck') {
+                mechSelect.value = 'vise';
             }
+
+            operations.forEach(type => {
+                const inputEl = document.getElementById(`input-${type}`);
+                const outputEl = document.getElementById(`output-${type}`);
+                if (op === type) {
+                    inputEl.classList.remove('hidden');
+                    outputEl.classList.remove('hidden');
+                } else {
+                    inputEl.classList.add('hidden');
+                    outputEl.classList.add('hidden');
+                }
+            });
             performCalculation();
         }
 
@@ -692,6 +999,121 @@
                 document.getElementById('svg-d-dclamp').textContent = `D = ${clampWidth} mm`;
                 document.getElementById('svg-d-fclamp1').textContent = `${Fclamp.toLocaleString('en-US', {maximumFractionDigits: 0})} N`;
                 document.getElementById('svg-d-fclamp2').textContent = `${Fclamp.toLocaleString('en-US', {maximumFractionDigits: 0})} N`;
+
+            } else if (op === 'turning') {
+                // Get Turning Params
+                const ap = parseFloat(document.getElementById('t-ap').value) || 0;
+                const f = parseFloat(document.getElementById('t-f').value) || 0;
+                const Dcut = parseFloat(document.getElementById('t-d').value) || 1;
+                const Dchuck = parseFloat(document.getElementById('t-dchuck').value) || 1;
+
+                // 1. Calculate Tangential Cutting Force: Fc = Kc * ap * f
+                const Fc = kc * ap * f;
+                
+                // 2. Calculate Cutting Torque: Tc = Fc * (Dcut / 2) -> output in Nm (div 1000)
+                const Tc = (Fc * Dcut) / 2000;
+
+                // 3. Calculate Required Radial Clamping Force: Total Fclamp = (Fc * Dcut * S) / (mu * Dchuck)
+                const Fclamp = (Fc * Dcut * sf) / (mu * Dchuck);
+                finalFclamp = Fclamp;
+
+                // Update UI
+                document.getElementById('res-fc-t').innerText = Fc.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+                document.getElementById('res-tc-t').innerText = Tc.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                document.getElementById('res-fclamp-t').innerText = Fclamp.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+                document.getElementById('res-fclamp-t-kg').innerText = (Fclamp / 9.81).toLocaleString('en-US', {maximumFractionDigits: 0});
+
+                // --- Interactive SVG Update for Turning ---
+                const tCy = 125; 
+                const maxDiameter = Math.max(Dcut, Dchuck, 10); 
+                const scale = 120 / maxDiameter; 
+                const visDchuck = Dchuck * scale;
+                const visDcut = Dcut * scale;
+
+                // Adjust workpiece boundaries
+                const p1x = 100, p1y = tCy - visDchuck/2;
+                const p2x = 210, p2y = p1y;
+                const p3x = 210, p3y = tCy - visDcut/2;
+                const p4x = 310, p4y = p3y;
+                const p5x = 310, p5y = tCy + visDcut/2;
+                const p6x = 210, p6y = p5y;
+                const p7x = 210, p7y = tCy + visDchuck/2;
+                const p8x = 100, p8y = p7y;
+
+                const wpPoly = `${p1x},${p1y} ${p2x},${p2y} ${p3x},${p3y} ${p4x},${p4y} ${p5x},${p5y} ${p6x},${p6y} ${p7x},${p7y} ${p8x},${p8y}`;
+                document.getElementById('svg-t-workpiece').setAttribute('points', wpPoly);
+
+                // Update Jaws
+                const topJawPath = `M 100 ${p1y - 25} L 130 ${p1y - 25} L 130 ${p1y} L 100 ${p1y} Z`;
+                document.getElementById('svg-t-jaw-top').setAttribute('d', topJawPath);
+                const botJawPath = `M 100 ${p8y} L 130 ${p8y} L 130 ${p8y + 25} L 100 ${p8y + 25} Z`;
+                document.getElementById('svg-t-jaw-bot').setAttribute('d', botJawPath);
+
+                // Update Chuck Body
+                const chuckH = visDchuck + 80;
+                const chuckEl = document.getElementById('svg-t-chuck-body');
+                chuckEl.setAttribute('height', chuckH);
+                chuckEl.setAttribute('y', tCy - chuckH/2);
+                document.getElementById('svg-t-chuck-text').setAttribute('transform', `rotate(-90 65,${tCy})`);
+
+                // Update Tool Pointing UP from BOTTOM
+                const toolTipX = 260;
+                const toolTipY = p5y;
+                document.getElementById('svg-t-tool-holder').setAttribute('points', `${toolTipX-8},${toolTipY+15} ${toolTipX+8},${toolTipY+15} ${toolTipX+8},${toolTipY+60} ${toolTipX-8},${toolTipY+60}`);
+                document.getElementById('svg-t-tool-tip').setAttribute('points', `${toolTipX},${toolTipY} ${toolTipX-8},${toolTipY+15} ${toolTipX+8},${toolTipY+15}`);
+
+                // Update Dimension Lines
+                document.getElementById('svg-t-line-dchuck').setAttribute('y1', p1y);
+                document.getElementById('svg-t-line-dchuck').setAttribute('y2', p8y);
+                document.getElementById('svg-t-dchuck').setAttribute('y', tCy + 4);
+                document.getElementById('svg-t-bg-dchuck').setAttribute('y', tCy - 8);
+
+                const dCutLineX = 290;
+                document.getElementById('svg-t-line-dcut').setAttribute('y1', p3y);
+                document.getElementById('svg-t-line-dcut').setAttribute('y2', p5y);
+                document.getElementById('svg-t-line-dcut').setAttribute('x1', dCutLineX);
+                document.getElementById('svg-t-line-dcut').setAttribute('x2', dCutLineX);
+                document.getElementById('svg-t-dcut').setAttribute('y', tCy + 4);
+                document.getElementById('svg-t-dcut').setAttribute('x', dCutLineX + 2);
+                document.getElementById('svg-t-bg-dcut').setAttribute('y', tCy - 8);
+                document.getElementById('svg-t-bg-dcut').setAttribute('x', dCutLineX);
+
+                // Update Fc Arrow (Pointing down towards tool tip)
+                document.getElementById('svg-t-arrow-fc').setAttribute('x1', toolTipX);
+                document.getElementById('svg-t-arrow-fc').setAttribute('x2', toolTipX);
+                document.getElementById('svg-t-arrow-fc').setAttribute('y1', toolTipY - 30);
+                document.getElementById('svg-t-arrow-fc').setAttribute('y2', toolTipY - 5);
+                document.getElementById('svg-t-fc-text').setAttribute('x', toolTipX + 10);
+                document.getElementById('svg-t-fc-text').setAttribute('y', toolTipY - 15);
+                document.getElementById('svg-t-bg-fc').setAttribute('x', toolTipX + 8);
+                document.getElementById('svg-t-bg-fc').setAttribute('y', toolTipY - 28);
+
+                // Update Feed Arrow (f)
+                document.getElementById('svg-t-arrow-feed').setAttribute('x1', toolTipX + 35);
+                document.getElementById('svg-t-arrow-feed').setAttribute('x2', toolTipX + 10);
+                document.getElementById('svg-t-arrow-feed').setAttribute('y1', toolTipY + 25);
+                document.getElementById('svg-t-arrow-feed').setAttribute('y2', toolTipY + 25);
+                document.getElementById('svg-t-feed-text').setAttribute('x', toolTipX + 10);
+                document.getElementById('svg-t-feed-text').setAttribute('y', toolTipY + 40);
+
+                // Clamping Forces (Radial)
+                document.getElementById('svg-t-arrow-clamp1').setAttribute('y1', p1y - 35);
+                document.getElementById('svg-t-arrow-clamp1').setAttribute('y2', p1y - 5);
+                document.getElementById('svg-t-fclamp1-text').setAttribute('y', p1y - 20);
+
+                document.getElementById('svg-t-arrow-clamp2').setAttribute('y1', p8y + 35);
+                document.getElementById('svg-t-arrow-clamp2').setAttribute('y2', p8y + 5);
+                document.getElementById('svg-t-fclamp2-text').setAttribute('y', p8y + 30);
+
+                // Update Text Values
+                document.getElementById('svg-t-fc-text').textContent = `Fc = ${Fc.toLocaleString('en-US', {maximumFractionDigits: 0})} N`;
+                document.getElementById('svg-t-dcut').textContent = `D = ${Dcut} mm`;
+                document.getElementById('svg-t-dchuck').textContent = `D = ${Dchuck} mm`;
+                document.getElementById('svg-t-tc-text').textContent = `Tc = ${Tc.toLocaleString('en-US', {maximumFractionDigits: 1})} Nm`;
+                
+                const halfForce = Fclamp / 2; // Show force per side on diagram
+                document.getElementById('svg-t-fclamp1-text').textContent = `${halfForce.toLocaleString('en-US', {maximumFractionDigits: 0})} N`;
+                document.getElementById('svg-t-fclamp2-text').textContent = `${halfForce.toLocaleString('en-US', {maximumFractionDigits: 0})} N`;
             }
 
             // คำนวณอุปกรณ์จับยึด
@@ -723,8 +1145,8 @@
                 resultHtml = `
                     <div class="mb-1"><span class="text-gray-400">เงื่อนไข:</span> สมมติว่ากระจายแรงจับยึดด้วยแคลมป์จำนวน <b>${numClamps} จุด</b></div>
                     <div class="mb-1"><span class="text-gray-400">สเปกที่ต้องการ:</span> แคลมป์แต่ละตัวต้องมีค่า Holding Capacity ขั้นต่ำ:</div>
-                    <div class="text-xl font-bold text-yellow-400 mt-2">${capacityPerClamp.toLocaleString('en-US', {maximumFractionDigits: 0})} N <span class="text-sm font-normal text-gray-400">(ต่อตัว)</span></div>
-                    <div class="text-xs text-gray-400 mt-2">*นำค่านี้ไปเทียบกับแคตตาล็อกผู้ผลิต (เช่น MISUMI, Carr Lane)</div>
+                    <div class="text-lg md:text-xl font-bold text-yellow-400 mt-2">${capacityPerClamp.toLocaleString('en-US', {maximumFractionDigits: 0})} N <span class="text-xs md:text-sm font-normal text-gray-400">(ต่อตัว)</span></div>
+                    <div class="text-[10px] md:text-xs text-gray-400 mt-2">*นำค่านี้ไปเทียบกับแคตตาล็อกผู้ผลิต (เช่น MISUMI, Carr Lane)</div>
                 `;
             } 
             else if (mech === 'pneumatic') {
@@ -737,8 +1159,8 @@
                     <div class="mb-1"><span class="text-gray-400">แรงดันลมระบบ:</span> <b>${P_bar} Bar</b> (0.6 MPa)</div>
                     <div class="mb-1"><span class="text-gray-400">สูตรคำนวณ:</span> D = √ (4F / πP)</div>
                     <div class="mt-2">ต้องใช้กระบอกลมเส้นผ่านศูนย์กลาง (Bore) ขั้นต่ำ:</div>
-                    <div class="text-xl font-bold text-yellow-400 mt-1">Ø ${Bore.toFixed(1)} mm</div>
-                    <div class="text-xs text-gray-400 mt-2">*ควรปัดเศษขึ้นเพื่อเลือกขนาดกระบอกลมมาตรฐาน (เช่น Ø 50, 63, 80 mm)</div>
+                    <div class="text-lg md:text-xl font-bold text-yellow-400 mt-1">Ø ${Bore.toFixed(1)} mm</div>
+                    <div class="text-[10px] md:text-xs text-gray-400 mt-2">*ควรปัดเศษขึ้นเพื่อเลือกขนาดกระบอกลมมาตรฐาน (เช่น Ø 50, 63, 80 mm)</div>
                 `;
             } 
             else if (mech === 'screw') {
@@ -751,8 +1173,8 @@
                     <div class="mb-1"><span class="text-gray-400">ขนาดเกลียว (สมมติ):</span> <b>M12</b> (Friction factor K ≈ 0.2)</div>
                     <div class="mb-1"><span class="text-gray-400">สูตรคำนวณ:</span> T = K × D × F</div>
                     <div class="mt-2">Operator ต้องใช้ประแจทอร์ค (Torque Wrench) ขันด้วยแรง:</div>
-                    <div class="text-xl font-bold text-yellow-400 mt-1">${Torque.toFixed(1)} N·m</div>
-                    <div class="text-xs text-gray-400 mt-2">*หากขันด้วยประแจธรรมดาโดยไม่ควบคุม ชิ้นงานอาจแน่นไม่พอ หรือคลายตัวจาก Vibration</div>
+                    <div class="text-lg md:text-xl font-bold text-yellow-400 mt-1">${Torque.toFixed(1)} N·m</div>
+                    <div class="text-[10px] md:text-xs text-gray-400 mt-2">*หากขันด้วยประแจธรรมดาโดยไม่ควบคุม ชิ้นงานอาจแน่นไม่พอ หรือคลายตัวจาก Vibration</div>
                 `;
             }
             else if (mech === 'strap') {
@@ -764,11 +1186,27 @@
                 resultHtml = `
                     <div class="mb-1"><span class="text-gray-400">เงื่อนไข:</span> กระจายแรงด้วย Bar Clamp <b>${numClamps} จุด</b></div>
                     <div class="mb-1"><span class="text-gray-400">หลักการคานงัด:</span> ตั้งน็อตยึด (Stud) ห่างจากชิ้นงาน <b>1/3</b> ของความยาวแคลมป์</div>
-                    <div class="mt-2 border-t border-slate-600 pt-2 text-sm">
-                        <p class="mb-1">1. แรงกดที่ชิ้นงาน (ต่อจุด): <b>${forcePerClamp.toLocaleString('en-US', {maximumFractionDigits: 0})} N</b></p>
-                        <p>2. แรงดึงที่น็อต Stud (คูณ ${leverRatio} เท่า): <b class="text-yellow-400 text-lg">${boltForce.toLocaleString('en-US', {maximumFractionDigits: 0})} N</b></p>
+                    <div class="mt-2 border-t border-slate-600 pt-2 text-xs md:text-sm">
+                        <p class="mb-1">1. แรงกดชิ้นงาน (ต่อจุด): <b>${forcePerClamp.toLocaleString('en-US', {maximumFractionDigits: 0})} N</b></p>
+                        <p>2. แรงดึงที่น็อต (คูณ ${leverRatio} เท่า): <b class="text-yellow-400 text-base md:text-lg">${boltForce.toLocaleString('en-US', {maximumFractionDigits: 0})} N</b></p>
                     </div>
-                    <div class="text-xs text-gray-400 mt-2">*จากกฎโมเมนต์ น็อตที่ยึด T-Nut ต้องรับแรงดึงสูงกว่าแรงกดชิ้นงาน (ควรใช้เกลียว M10 - M12 ขึ้นไป)</div>
+                    <div class="text-[10px] md:text-xs text-gray-400 mt-2 leading-relaxed">*จากกฎโมเมนต์ น็อตที่ยึด T-Nut ต้องรับแรงดึงสูงกว่าแรงกดชิ้นงาน (ควรใช้เกลียว M10 - M12 ขึ้นไป)</div>
+                `;
+            }
+            else if (mech === 'chuck') {
+                const numJaws = 3; 
+                const forcePerJaw = Fclamp / numJaws;
+                
+                resultHtml = `
+                    <div class="mb-1"><span class="text-gray-400">จำนวนฟันจับ (Jaws):</span> <b>${numJaws} จับ</b></div>
+                    <div class="mb-1"><span class="text-gray-400">แรงบีบรวม (Total Radial Force):</span> <b>${Fclamp.toLocaleString('en-US', {maximumFractionDigits: 0})} N</b></div>
+                    <div class="mt-2 border-t border-slate-600 pt-2 text-xs md:text-sm">
+                        <p class="mb-1">แรงบีบที่ต้องการ <b>ต่อ 1 ฟันจับ (Per Jaw)</b>:</p>
+                        <p><b class="text-yellow-400 text-xl md:text-2xl">${forcePerJaw.toLocaleString('en-US', {maximumFractionDigits: 0})} N</b></p>
+                    </div>
+                    <div class="text-[10px] md:text-xs text-red-400 mt-3 p-2 bg-red-900/30 rounded border border-red-800 leading-relaxed">
+                        <i class="fas fa-radiation"></i> <b>ข้อควรระวัง:</b> นี่คือแรงบีบขณะหยุดนิ่ง (Static Grip) เมื่อเครื่องหมุนด้วยรอบสูง (RPM) แรงเหวี่ยงหนีศูนย์จะทำให้แรงบีบจริงลดลง วิศวกรต้องตั้งแรงดันไฮดรอลิกเผื่อไว้เสมอ!
+                    </div>
                 `;
             }
 
@@ -785,6 +1223,9 @@
             
             // Init DOF simulation
             updateDOFSimulation();
+            
+            // Init Calculator Default
+            toggleCalcInputs();
         };
     </script>
 </body>
