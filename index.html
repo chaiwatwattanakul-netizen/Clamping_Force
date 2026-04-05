@@ -9,6 +9,8 @@
     <!-- MathJax สำหรับแสดงสมการวิศวกรรมแบบวิชาการ -->
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Chart.js สำหรับวาดกราฟจุดคุ้มทุน -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&display=swap');
         body {
@@ -68,6 +70,7 @@
                     <button onclick="switchTab('principle321')" class="whitespace-nowrap hover:text-blue-400 transition font-medium border-b-2 border-transparent hover:border-blue-400 pb-1 text-sm md:text-base">หลักการ 3-2-1 (DOF)</button>
                     <button onclick="switchTab('theory')" class="whitespace-nowrap hover:text-blue-400 transition font-medium border-b-2 border-transparent hover:border-blue-400 pb-1 text-sm md:text-base">ทฤษฎีวิศวกรรม</button>
                     <button onclick="switchTab('calculator')" class="whitespace-nowrap hover:text-blue-400 transition font-medium border-b-2 border-transparent hover:border-blue-400 pb-1 text-sm md:text-base">โปรแกรมคำนวณ</button>
+                    <button onclick="switchTab('economics')" class="whitespace-nowrap hover:text-blue-400 transition font-medium border-b-2 border-transparent hover:border-blue-400 pb-1 text-sm md:text-base">วิเคราะห์จุดคุ้มทุน</button>
                     <button onclick="switchTab('reference')" class="whitespace-nowrap hover:text-blue-400 transition font-medium border-b-2 border-transparent hover:border-blue-400 pb-1 text-sm md:text-base">ตารางอ้างอิง</button>
                 </div>
             </div>
@@ -473,6 +476,39 @@
                 </div>
             </div>
 
+            <!-- Economics Theory Section (NEW) -->
+            <div class="bg-white rounded-xl shadow-md p-5 md:p-8 mt-6 md:mt-8 border-t-4 border-green-500">
+                <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-4 border-b pb-2"><i class="fas fa-hand-holding-usd text-green-500 mr-2"></i>4. ทฤษฎีการวิเคราะห์จุดคุ้มทุน (Economic Analysis)</h2>
+                <p class="mb-4 text-sm md:text-base text-gray-700 leading-relaxed">ในทางวิศวกรรมอุตสาหการ (Industrial Engineering) การออกแบบหรือจัดซื้ออุปกรณ์จับยึดที่มีราคาสูง (เช่น ระบบไฮดรอลิก/นิวเมติก) ต้องมีความคุ้มค่าทางเศรษฐศาสตร์ หลักการพื้นฐานคือการนำ <strong>"เวลาสูญเปล่าที่ลดลงได้ (Setup Time Reduction)"</strong> มาแปลงเป็นมูลค่าตัวเงิน เพื่อเปรียบเทียบกับเงินลงทุนตั้งต้น (Investment Cost)</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+                        <h4 class="font-semibold text-green-800 mb-2 text-sm md:text-base">1. การคำนวณเงินที่ประหยัดได้ (Annual Savings):</h4>
+                        <div class="text-center bg-white border py-3 mb-2 overflow-x-auto text-sm md:text-base">
+                            \[ S_{annual} = \left( \frac{\Delta T}{60} \right) \cdot R_m \cdot V \cdot 12 \]
+                        </div>
+                        <ul class="text-xs md:text-sm text-gray-600 space-y-1">
+                            <li>\(S_{annual}\) = เงินที่ประหยัดได้ต่อปี (THB/Year)</li>
+                            <li>\(\Delta T\) = เวลา Setup ที่ลดลงได้ต่อชิ้น (นาที/ชิ้น)</li>
+                            <li>\(R_m\) = อัตราค่าใช้จ่ายเครื่องจักรและพนักงาน (THB/ชั่วโมง)</li>
+                            <li>\(V\) = ปริมาณการผลิตต่อเดือน (ชิ้น/เดือน)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                        <h4 class="font-semibold text-blue-800 mb-2 text-sm md:text-base">2. การหาระยะเวลาคืนทุน (Payback Period):</h4>
+                        <div class="text-center bg-white border py-3 text-blue-700 overflow-x-auto text-sm md:text-base">
+                            \[ P_{months} = \frac{C_{invest}}{S_{annual} / 12} \]
+                        </div>
+                        <ul class="text-xs md:text-sm text-gray-600 space-y-1 mt-2">
+                            <li>\(P_{months}\) = ระยะเวลาคืนทุน (เดือน)</li>
+                            <li>\(C_{invest}\) = เงินลงทุนสร้างหรือซื้อ Fixture (THB)</li>
+                        </ul>
+                        <p class="text-[10px] md:text-xs text-blue-600 mt-3 leading-relaxed bg-blue-100 p-2 rounded border border-blue-200">* <strong>เกณฑ์การตัดสินใจ (Decision Criteria):</strong> หาก \(P_{months} \le 12\) ถือว่าเป็นการลงทุนที่คุ้มค่ามาก (Excellent ROI) เนื่องจากชิ้นงานส่วนใหญ่มักมีวงจรชีวิตผลิตภัณฑ์ (Product Life Cycle) ยาวนานกว่า 1 ปี</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <!-- TAB: Calculator -->
@@ -766,6 +802,82 @@
             </div>
         </div>
 
+        <!-- TAB: Economics (NEW) -->
+        <div id="economics" class="tab-content">
+            <div class="bg-white rounded-xl shadow-lg p-5 md:p-8 max-w-4xl mx-auto">
+                <div class="text-center mb-6 md:mb-8">
+                    <h2 class="text-xl md:text-2xl font-bold text-slate-800"><i class="fas fa-chart-line text-blue-500 mr-2"></i>วิเคราะห์จุดคุ้มทุนอุปกรณ์จับยึด (Fixture Economics)</h2>
+                    <p class="text-sm md:text-base text-gray-500 mt-2">ประเมินความคุ้มค่าในการลงทุนสร้าง Jig & Fixture หรือซื้ออุปกรณ์จับยึดเพื่อลดเวลา Setup (Setup Time Reduction)</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
+                    <!-- Input Section -->
+                    <div class="space-y-4 md:space-y-5 border-b lg:border-b-0 lg:border-r pb-6 lg:pb-0 lg:pr-8 border-gray-200">
+                        <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
+                            <h4 class="text-sm font-bold text-blue-800 mb-2"><i class="fas fa-coins mr-2"></i>พารามิเตอร์การลงทุน</h4>
+                            <div class="grid grid-cols-1 gap-4">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">เงินลงทุนสร้าง Fixture / ซื้ออุปกรณ์ [THB]</label>
+                                    <input type="number" id="eco-cost" value="50000" step="1000" oninput="calculateEconomics()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">เวลา Setup ที่คาดว่าจะลดลงต่อชิ้น [นาที/ชิ้น]</label>
+                                    <input type="number" id="eco-time" value="2.5" step="0.1" oninput="calculateEconomics()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">ค่าใช้จ่ายเครื่องจักร+พนักงาน (Machine Rate) [THB/ชม.]</label>
+                                    <input type="number" id="eco-rate" value="500" step="50" oninput="calculateEconomics()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm shadow-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-700">ปริมาณการผลิต (Production Volume) [ชิ้น/เดือน]</label>
+                                    <input type="number" id="eco-vol" value="2000" step="100" oninput="calculateEconomics()" class="mt-1 w-full bg-white border border-gray-300 rounded-md p-2 text-sm shadow-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-xs text-gray-500 leading-relaxed">
+                            <i class="fas fa-info-circle text-blue-400"></i> <strong>แนวคิดวิศวกรรมการผลิต:</strong> การเปลี่ยนจากการขันน็อตทีละตัว (Manual) มาเป็นการใช้ระบบไฮดรอลิก (Hydraulic) อาจต้องใช้เงินลงทุนสูง แต่หากผลิตจำนวนมาก เวลาที่ประหยัดได้จะแปลงกลับมาเป็นกำไรที่คืนทุนได้อย่างรวดเร็ว
+                        </div>
+                    </div>
+
+                    <!-- Output Section -->
+                    <div class="flex flex-col justify-center items-center bg-slate-800 text-white p-6 md:p-8 rounded-xl shadow-inner relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10">
+                            <i class="fas fa-piggy-bank text-8xl md:text-9xl"></i>
+                        </div>
+                        
+                        <h3 class="text-base md:text-lg font-medium text-blue-300 mb-6 z-10 uppercase tracking-wider">ผลวิเคราะห์ (Financial ROI)</h3>
+                        
+                        <div class="w-full text-center z-10">
+                            <div class="mb-5">
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">เงินที่ประหยัดได้ (Annual Savings)</p>
+                                <p class="text-3xl md:text-4xl font-bold text-green-400"><span id="res-eco-saved">0</span> <span class="text-base md:text-lg font-normal text-gray-300">THB/ปี</span></p>
+                            </div>
+                            
+                            <div class="w-full h-px bg-slate-600 mb-5"></div>
+                            
+                            <div class="mb-6">
+                                <p class="text-xs md:text-sm text-gray-400 mb-1">ระยะเวลาคืนทุน (Payback Period)</p>
+                                <p class="text-4xl md:text-5xl font-bold text-yellow-400 mb-2"><span id="res-eco-payback">0.0</span></p>
+                                <p class="text-lg md:text-xl text-gray-300">เดือน (Months)</p>
+                            </div>
+
+                            <div id="eco-status" class="mt-4 p-3 bg-slate-700 border border-slate-600 rounded-lg text-sm">
+                                <!-- Status generated via JS -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ROI Chart Section (NEW) -->
+                <div class="mt-8 border-t border-gray-200 pt-6">
+                    <h3 class="text-lg font-bold text-slate-700 mb-4"><i class="fas fa-chart-area text-blue-500 mr-2"></i>กราฟแสดงจุดคุ้มทุน (Break-even Chart)</h3>
+                    <div class="w-full bg-slate-50 p-4 rounded-lg border border-gray-200">
+                        <canvas id="roiChart" style="max-height: 350px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- TAB: Reference -->
         <div id="reference" class="tab-content">
             <div class="bg-white rounded-xl shadow-md p-5 md:p-8">
@@ -834,6 +946,9 @@
 
     <!-- JavaScript Logic -->
     <script>
+        // Global variables
+        let roiChartInstance = null;
+
         // Tab Switching Logic
         function switchTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
@@ -846,6 +961,8 @@
 
             if(tabId === 'calculator') {
                 performCalculation(); // auto calculate on open
+            } else if(tabId === 'economics') {
+                calculateEconomics(); // auto calculate on open
             }
         }
 
@@ -959,6 +1076,159 @@
             }
             
             performCalculation();
+        }
+
+        // Economics Calculation Logic
+        function calculateEconomics() {
+            const cost = parseFloat(document.getElementById('eco-cost').value) || 0;
+            const timeSavedMins = parseFloat(document.getElementById('eco-time').value) || 0;
+            const hourlyRate = parseFloat(document.getElementById('eco-rate').value) || 0;
+            const volPerMonth = parseFloat(document.getElementById('eco-vol').value) || 0;
+
+            // Calculate savings
+            const savedPerPart = (timeSavedMins / 60) * hourlyRate; // Baht per part
+            const savedPerMonth = savedPerPart * volPerMonth; // Baht per month
+            const savedPerYear = savedPerMonth * 12; // Baht per year
+
+            // Calculate Payback
+            let paybackMonths = 0;
+            if (savedPerMonth > 0) {
+                paybackMonths = cost / savedPerMonth;
+            }
+
+            // Update Output UI
+            document.getElementById('res-eco-saved').innerText = savedPerYear.toLocaleString('en-US', {maximumFractionDigits: 0});
+            
+            const paybackEl = document.getElementById('res-eco-payback');
+            if (savedPerMonth === 0) {
+                paybackEl.innerText = "N/A";
+            } else {
+                paybackEl.innerText = paybackMonths.toLocaleString('en-US', {minimumFractionDigits: 1, maximumFractionDigits: 1});
+            }
+
+            // Status Logic
+            const statusEl = document.getElementById('eco-status');
+            if (savedPerMonth === 0 || cost === 0) {
+                statusEl.innerHTML = `<span class="text-gray-400">กรุณากรอกข้อมูลเพื่อประเมินความคุ้มค่า</span>`;
+                statusEl.className = "mt-4 p-3 bg-slate-700 border border-slate-600 rounded-lg text-sm text-center";
+            } else if (paybackMonths > 0 && paybackMonths <= 12) {
+                statusEl.innerHTML = `<span class="text-green-400 font-bold"><i class="fas fa-check-circle"></i> ตัดสินใจลงทุนได้เลย (คืนทุนไวกว่า 1 ปี)</span><p class="text-xs text-slate-300 mt-1">หลังจากเดือนที่ ${Math.ceil(paybackMonths)} เป็นต้นไป จะกลายเป็นกำไรสุทธิ</p>`;
+                statusEl.className = "mt-4 p-3 bg-green-900/30 border border-green-700 rounded-lg text-sm text-center";
+            } else if (paybackMonths > 12 && paybackMonths <= 24) {
+                statusEl.innerHTML = `<span class="text-yellow-400 font-bold"><i class="fas fa-exclamation-circle"></i> ลงทุนได้ระยะกลาง (คืนทุนใน 1-2 ปี)</span><p class="text-xs text-slate-300 mt-1">เหมาะสมหากชิ้นงานนี้ (Part Product) มีแผนผลิตยาวนานกว่า 2 ปี</p>`;
+                statusEl.className = "mt-4 p-3 bg-yellow-900/30 border border-yellow-700 rounded-lg text-sm text-center";
+            } else {
+                statusEl.innerHTML = `<span class="text-red-400 font-bold"><i class="fas fa-times-circle"></i> ควรทบทวนการลงทุน (คืนทุนช้ากว่า 2 ปี)</span><p class="text-xs text-slate-300 mt-1">แนะนำให้หา Fixture ที่ราคาถูกลง หรือลด Time Saved ให้น้อยลงอีก</p>`;
+                statusEl.className = "mt-4 p-3 bg-red-900/30 border border-red-700 rounded-lg text-sm text-center";
+            }
+
+            // Update ROI Chart
+            updateROIChart(cost, savedPerMonth, paybackMonths);
+        }
+
+        // ROI Chart Update Logic
+        function updateROIChart(cost, savedPerMonth, paybackMonths) {
+            const ctx = document.getElementById('roiChart').getContext('2d');
+            
+            // Determine X-axis length (max months to show)
+            let maxMonths = 24; // Default show 2 years
+            if (paybackMonths > 0 && paybackMonths < 60) {
+                maxMonths = Math.ceil(paybackMonths) + 6; // Show a bit past payback point
+                if (maxMonths < 12) maxMonths = 12; // Minimum show 1 year
+            } else if (paybackMonths >= 60) {
+                maxMonths = 60; // Cap at 5 years if payback is very long
+            }
+
+            const labels = [];
+            const costData = [];
+            const savingsData = [];
+
+            for (let i = 0; i <= maxMonths; i++) {
+                labels.push(`เดือน ${i}`);
+                costData.push(cost); // Flat line
+                savingsData.push(i * savedPerMonth); // Linear growth
+            }
+
+            if (roiChartInstance) {
+                roiChartInstance.data.labels = labels;
+                roiChartInstance.data.datasets[0].data = costData;
+                roiChartInstance.data.datasets[1].data = savingsData;
+                roiChartInstance.update();
+            } else {
+                Chart.defaults.font.family = "'Sarabun', sans-serif";
+                roiChartInstance = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [
+                            {
+                                label: 'เงินลงทุนเริ่มต้น (Investment)',
+                                data: costData,
+                                borderColor: '#ef4444', // Red 500
+                                backgroundColor: '#ef4444',
+                                borderWidth: 2,
+                                borderDash: [5, 5],
+                                pointRadius: 0,
+                                fill: false,
+                            },
+                            {
+                                label: 'ผลประหยัดสะสม (Cumulative Savings)',
+                                data: savingsData,
+                                borderColor: '#22c55e', // Green 500
+                                backgroundColor: 'rgba(34, 197, 94, 0.15)',
+                                borderWidth: 3,
+                                pointRadius: 3,
+                                pointBackgroundColor: '#22c55e',
+                                fill: true,
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        interaction: {
+                            mode: 'index',
+                            intersect: false,
+                        },
+                        plugins: {
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) label += ': ';
+                                        if (context.parsed.y !== null) {
+                                            label += new Intl.NumberFormat('en-US').format(context.parsed.y) + ' THB';
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'จำนวนเงิน (บาท)',
+                                    font: { weight: 'bold' }
+                                },
+                                ticks: {
+                                    callback: function(value) {
+                                        return new Intl.NumberFormat('en-US', { notation: "compact", compactDisplay: "short" }).format(value);
+                                    }
+                                }
+                            },
+                            x: {
+                                title: {
+                                    display: true,
+                                    text: 'ระยะเวลา (เดือน)',
+                                    font: { weight: 'bold' }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
         }
 
         // Main Engineering Calculation Engine
@@ -1244,6 +1514,9 @@
             
             // Init Calculator Default
             toggleCalcInputs();
+            
+            // Init Economics
+            calculateEconomics();
         };
     </script>
 </body>
